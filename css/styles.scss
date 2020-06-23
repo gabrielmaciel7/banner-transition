@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+html {
+  /* a cada 1rem será considera 10px */
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100vh;
+  font-family: Roboto;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: #131313;
+}
+
+.section-transition {
+  .container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    margin: auto;
+    //margin-top: 2rem;
+    position: relative;
+
+    .transition {
+      li {
+        list-style: none;
+        position: absolute;
+
+        &:nth-child(1) {
+          label {
+            left: calc((600px / 2) - 30px);
+          }
+        }
+
+        &:nth-child(2) {
+          label {
+            left: calc(600px / 2);
+          }
+        }
+
+        &:nth-child(3) {
+          label {
+            left: calc((600px / 2) + 30px);
+          }
+        }
+
+        input {
+          &:checked {
+            & ~ a {
+              visibility: visible;
+
+              img {
+                transition: opacity 2s;
+                opacity: 1;
+                visibility: visible;
+                z-index: 2;
+              }
+            }
+
+            & ~ label {
+              transition: background-color 0.5s;
+              background-color: #fff;
+              border-style: none;
+            }
+          }
+        }
+      }
+
+      img {
+        margin: auto;
+        height: 50vh;
+        width: 100%;
+        max-height: 200px;
+        vertical-align: top;
+        opacity: 0;
+        visibility: hidden;
+        object-fit: cover;
+        display: flex;
+        //border-radius: 1rem;
+        //border-style: solid;
+        //border-color: $primary-color;
+      }
+
+      input {
+        display: none;
+      }
+
+      label {
+        background-color: 'transparent';
+        bottom: 10px;
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        height: 12px;
+        width: 12px;
+        z-index: 3;
+        border-radius: 0.8rem;
+        border-style: solid;
+        border-width: thin;
+        border-color: #fff;
+      }
+
+      a {
+        cursor: pointer;
+        display: flex;
+        visibility: hidden;
+      }
+    }
+  }
+}
